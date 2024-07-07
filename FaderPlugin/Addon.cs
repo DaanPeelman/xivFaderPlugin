@@ -87,19 +87,19 @@ public static unsafe class Addon {
 
         if(isVisible) {
             // Restore the elements position on screen.
-            if (storedPositions.TryGetValue(name, out var position) && (addon->X == -9999 || addon->Y == -9999))
+            if (storedPositions.TryGetValue(name, out var position) && (addon->X == -99999 || addon->Y == -99999))
             {
                 var (x, y) = position;
                 addon->SetPosition(x, y);
             }
         } else {
             // Store the position prior to hiding the element.
-            if(addon->X != -9999 && addon->Y != -9999) {
+            if(addon->X != -99999 && addon->Y != -99999) {
                 storedPositions[name] = (addon->X, addon->Y);
             }
 
             // Move the element off screen so it can't be interacted with.
-            addon->SetPosition(-9999, -9999);
+            addon->SetPosition(-99999, -99999);
         }
     }
 
